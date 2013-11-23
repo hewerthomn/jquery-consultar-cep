@@ -16,6 +16,7 @@ Adicione o arquivo jquery.consultar-cep.min.js após o arquivo do jQuery
        evento:        'blur',
        focarAposPara: '#numero',
        campos: {
+         cep:         '#cep',
          logradouro:  '#endereco',
          bairro:      '#bairro',
          localidade:  '#cidade',

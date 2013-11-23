@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../favicon.png">
+
+    <title>Exemplo Consultar CEP ao clicar em botão</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <h1>
+        <div class="pull-right">
+          <a href="http://github.com/hewerthomn/jquery-consultar-cep" title="Repositório no GitHub" class="btn btn-lg btn-link">
+            <i class="fa fa-github fa-2x"></i></a>
+          <button type="button" class="btn bnt-default" onclick="history.go(-1)">Voltar</button>
+        </div>
+
+        Exemplo Plugin jQuery Consultar CEP <br>
+        <small>Consultar CEP ao clicar em botão</small>
+      </h1>
+      <hr>
+
+      <form class="well well-sm">              
+        <div class="row">
+          <div class="col-md-2">
+            <label for="cep">CEP
+            <div class="form-group">
+              <div class="input-group">
+
+                <input id="cep" type="text" value="76801356" class="form-control input-sm" maxlength="8">
+
+                <div class="input-group-btn">
+                  <button autofocus id="consultar-cep" type="button" class="btn btn-sm btn-primary"><small>Buscar</small></button>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input type="text" id="endereco" class="form-control input-sm">
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="form-group">
+              <label for="numero">Número</label>
+              <input type="text" class="form-control input-sm" id="numero">
+            </div>
+          </div>        
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="bairro">Bairro</label>
+              <input type="text" class="form-control input-sm" id="bairro">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" class="form-control input-sm" id="cidade">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">              
+              <label for="uf">UF</label>
+                <select class="form-control input-sm" id="uf" name="uf"><option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option></select>
+            </div>
+          </div>                
+        </div>
+      </form>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="../jquery.consultar-cep.min.js"></script>
+    <script>
+
+      $('#cep').consultarCep({
+        mensagem:      '<i class="fa fa-spin fa-spinner"></i>',
+        focarAposPara: '#numero',
+        btnConsultar:  '#consultar-cep',
+        campos: {
+          logradouro: '#endereco',
+          bairro:     '#bairro',
+          localidade: '#cidade',
+          uf:         '#uf'
+        }
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="hewertho.mn">
+    <meta name="description" content="Plugin jQuery para preencher formulários de endereço a partir de CEP.">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Plugin jQuery Consultar CEP</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a title="Repositório no GitHub" href="http://github.com/hewerthomn/jquery-consultar-cep" class="btn btn-link btn-lg pull-right">
+          <i class="fa fa-github fa-2x"></i></a>
+        <h3 class="text-muted">jQuery Consultar CEP</h3>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-7">
+          <h3>Descrição</h3>
+          <p>
+            Plugin jQuery para preencher campos de formulários a partir de CEP digitado por usuário.
+            <br>
+            <br>
+            <b>
+              Powered by 
+              <a href="http://avisobrasil.com.br/correio-control/api-de-consulta-de-cep/" target="_blank">avisobrasil.com.br</a>
+            </b>
+          </p>
+          <br>          
+
+          <h3>Instalação</h3>
+          <pre class="code-html">
+&lt;script src="http://code.jquery.com/jquery-1.10.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.consultar-cep.js"&gt;&lt;/scrip&gt;
+          </pre>          
+        </div>
+
+        <div class="col-md-4">
+          <h3>Uso</h3>
+          <pre class="code-js">
+  $('#cep').consultarCep({
+    evento:        'blur',
+    focarAposPara: '#numero',
+    campos: {
+      logradouro:  '#endereco',
+      bairro:      '#bairro',
+      localidade:  '#cidade',
+      uf:          '#uf'
+    }
+  });
+          </pre>          
+
+          <br>
+
+          <h3></h3>
+        </div>
+      </div>
+
+      <h3>Exemplos</h3>
+      <div class="row">
+        <div class="list-group col-md-6">
+          <a class="list-group-item" href="examples/on-click.html">Consultar CEP ao clicar em botão</a>
+          <a class="list-group-item" href="examples/on-blur.html">Consultar CEP ao deixar campo de text</a>
+        </div>        
+      </div>
+
+      <hr>
+
+      <a href="http://hewertho.mn">hewertho.mn</a>
+      
+    </div> <!-- /container -->
+  </body>
+</html>

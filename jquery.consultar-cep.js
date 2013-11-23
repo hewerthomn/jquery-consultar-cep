@@ -67,7 +67,7 @@
   	options.btnConsultar = $(options.btnConsultar);
 
 		options.elMensagem = $('<span/>', {
-			class: 'label label-default',
+			class: options.classMensagem,
 			html: options.mensagem
 		}).hide();
 

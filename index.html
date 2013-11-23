@@ -10,8 +10,11 @@
     <title>Plugin jQuery Consultar CEP</title>
 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.1/cosmo/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
+    <link href="syntaxhighlighter/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="syntaxhighlighter/shThemeDefault.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -20,36 +23,45 @@
   <body>
     <div class="container">
       <div class="header">
-        <a title="Repositório no GitHub" href="http://github.com/hewerthomn/jquery-consultar-cep" class="btn btn-link btn-lg pull-right">
-          <i class="fa fa-github fa-2x"></i></a>
-        <h3 class="text-muted">jQuery Consultar CEP</h3>
+        <a title="Repositório no GitHub" href="http://github.com/hewerthomn/jquery-consultar-cep" class="btn btn-primary btn-lg pull-right">
+          <i class="fa fa-github fa-3x"></i>
+        </a>
+        <h1>
+          <img src="jquery.png" alt="" class="img-rounded">
+          <a href="" title="jQuery" class="text-primary"><b>Consultar CEP</b></a>
+        </h1>
       </div>
       <hr>
 
       <div class="row">
         <div class="col-md-7">
-          <h3>Descrição</h3>
+          <fieldset>
+            <legend>Descrição</legend>
+          </fieldset>
           <p>
-            Plugin jQuery para preencher campos de formulários a partir de CEP digitado por usuário.
+            Plugin <a href="http://jquery.com/" target="_blank">jQuery</a> para preencher campos de formulários a partir de CEP digitado por usuário.
             <br>
             <br>
-            <b>
+            <b class="well well-sm">
               Powered by 
               <a href="http://avisobrasil.com.br/correio-control/api-de-consulta-de-cep/" target="_blank">avisobrasil.com.br</a>
             </b>
           </p>
           <br>          
 
-          <h3>Instalação</h3>
-          <pre class="code-html">
+          <fieldset><legend>Instalação</legend></fieldset>
+          <p>
+            Adicione o arquivo <code>jquery.consultar-cep.min.js</code> após o arquivo do <a href="http://jquery.com" target="_blank">jQuery</a>.
+          </p>
+          <pre class="brush: xhtml">
 &lt;script src="http://code.jquery.com/jquery-1.10.1.min.js"&gt;&lt;/script&gt;
-&lt;script src="jquery.consultar-cep.js"&gt;&lt;/scrip&gt;
+&lt;script src="jquery.consultar-cep.min.js"&gt;&lt;/script&gt;
           </pre>          
         </div>
 
         <div class="col-md-4">
-          <h3>Uso</h3>
-          <pre class="code-js">
+          <fieldset><legend>Código JavaScript</legend></fieldset>
+          <pre class="brush: js">
   $('#cep').consultarCep({
     evento:        'blur',
     focarAposPara: '#numero',
@@ -60,26 +72,25 @@
       uf:          '#uf'
     }
   });
-          </pre>          
+        </pre>          
 
-          <br>
-
-          <h3></h3>
-        </div>
-      </div>
-
-      <h3>Exemplos</h3>
-      <div class="row">
-        <div class="list-group col-md-6">
+        <fieldset><legend>Exemplos</legend></fieldset>
           <a class="list-group-item" href="examples/on-click.html">Consultar CEP ao clicar em botão</a>
           <a class="list-group-item" href="examples/on-blur.html">Consultar CEP ao deixar campo de text</a>
-        </div>        
       </div>
+    </div>
+
 
       <hr>
-
-      <a href="http://hewertho.mn">hewertho.mn</a>
+      <img src="copyleft.png" alt="(copyleft)"> <a href="http://github.com/hewerthomn">hewertho.mn</a>
       
     </div> <!-- /container -->
   </body>
+
+<script src="syntaxhighlighter/shCore.js"></script>
+<script src="syntaxhighlighter/shBrushJScript.js"></script>        
+<script src="syntaxhighlighter/shBrushXml.js"></script>        
+<script>
+     SyntaxHighlighter.all()
+</script>
 </html>

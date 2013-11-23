@@ -11,7 +11,11 @@
     <title>Exemplo Consultar CEP ao deixar campo de texto</title>
 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.1/cosmo/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <link href="../syntaxhighlighter/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../syntaxhighlighter/shThemeDefault.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -19,11 +23,10 @@
 
       <h1>
         <div class="pull-right">
-          <a href="http://github.com/hewerthomn/jquery-consultar-cep" title="Repositório no GitHub" class="btn btn-lg btn-link">
-            <i class="fa fa-github fa-2x"></i></a>
-          <button type="button" class="btn bnt-default" onclick="history.go(-1)">Voltar</button>
+          <a href="http://github.com/hewerthomn/jquery-consultar-cep" title="Repositório no GitHub" class="btn btn-lg btn-primary">
+            <i class="fa fa-github fa-3x"></i></a>          
         </div>
-
+        <i class="fa fa-sun-o text-warning"></i>
         Exemplo Plugin jQuery Consultar CEP <br>
         <small>Consultar CEP ao deixar campo de texto</small>
       </h1>
@@ -72,6 +75,25 @@
         </div>
       </form>
 
+      <pre class="brush: js">
+        $('#cep').consultarCep({
+
+        evento:        'blur',
+        focarAposPara: '#numero',
+        mensagem: '&lt;i class="fa fa-spin fa-spinner"&gt;&lt;/i&gt;',
+        classMensagem: 'label label-default',
+        campos: {
+          logradouro:  '#endereco',
+          bairro:      '#bairro',
+          localidade:  '#cidade',
+          uf:          '#uf'
+        }
+      });
+      </pre>
+
+      <hr>
+      <button type="button" class="btn bnt-default pull-right" onclick="history.go(-1)">Voltar</button>
+
     </div><!-- /.container -->
 
 
@@ -80,12 +102,20 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="../syntaxhighlighter/shCore.js"></script>
+    <script src="../syntaxhighlighter/shBrushJScript.js"></script>        
+    <script>
+         SyntaxHighlighter.all()
+    </script>
     <script src="../jquery.consultar-cep.js"></script>
     <script>
 
       $('#cep').consultarCep({
+
         evento:        'blur',
         focarAposPara: '#numero',
+        mensagem: '<i class="fa fa-spin fa-spinner"></i>',
+        classMensagem: 'label label-default',
         campos: {
           logradouro:  '#endereco',
           bairro:      '#bairro',

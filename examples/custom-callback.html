@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <title>Exemplo de função Callback personalizada</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.1/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <link href="../assets/syntaxhighlighter/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/syntaxhighlighter/shThemeDefault.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container">
+
+      <h1>
+        <div class="pull-right">
+          <a href="http://github.com/hewerthomn/jquery-consultar-cep" title="Repositório no GitHub" class="btn btn-lg btn-primary">
+            <i class="fa fa-github fa-3x"></i></a>
+        </div>
+        <i class="fa fa-sun-o text-warning"></i>
+        Exemplo Plugin jQuery Consultar CEP <br>
+        <small>Função Callback personalizada</small>
+      </h1>
+      <hr>
+
+      <form class="well well-sm">              
+        <div class="row">
+          <div class="col-md-2">
+            <label for="cep">CEP
+            <div class="form-group">
+              <div class="input-group">
+
+                <input id="Cep" type="text" value="76801356" class="form-control input-sm" maxlength="8">
+
+                <div class="input-group-btn">
+                  <button autofocus id="btnBuscarCEP" type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="Endereco">Endereço</label>
+              <input type="text" id="Endereco" class="form-control input-sm">
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="form-group">
+              <label for="Numero">Número</label>
+              <input type="text" class="form-control input-sm" id="Numero">
+            </div>
+          </div>        
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="Bairro">Bairro</label>
+              <input type="text" class="form-control input-sm" id="Bairro">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="CidadeId">Cidade</label>
+              <select id="CidadeId" class="form-control input-sm">
+                <option value="0">Selecione a Cidade</option>
+                <option value="1">Porto Velho</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">              
+              <label for="UFId">UF</label>
+                <select class="form-control input-sm" id="UFId" name="UFId">
+                  <option value="0">Selecione a UF</option>
+                  <option value="1">Rondônia</option>
+                </select>
+            </div>
+          </div>                
+        </div>
+      </form>
+
+      <fieldset><legend>Exemplo de código JavaScript</legend></fieldset>
+      <pre class="brush: js">
+        $('#Cep').consultarCep({
+          mensagem:      '...',
+          btnConsultar:  '#btnBuscarCEP',
+          focarAposPara: '#Numero',
+          classMensagem: 'label label-default',
+          sucesso: function(endereco) {
+
+            $('#Endereco').val(endereco.logradouro);
+            $('#Bairro').val(endereco.bairro);
+
+            procurarCidade(endereco.uf, endereco.localidade);
+          },
+          falha: function(erro) {
+            $('#Endereco').val('CEP não encontrado.');
+            $('#Bairro').val('');
+            $('#CidadeId').val(0);
+            $('#UFId').val(0);
+            
+            $('#Cep').focus();
+          },
+          sempre: function() {
+            // escreva o código para executar sempre, em sucesso ou falha
+          }
+        });
+
+        function procurarCidade(uf, cidade) {
+          /*
+          *
+          * Implemente uma página que busque a partir de uf e cidade
+          * e retorne um JSON com os valores de UFId e CidadeId.
+          *
+          */
+          $.ajax({
+            url: '/procurar-cidade',
+            data: { uf: uf, cidade: cidade }
+          }).success(function(data) {
+
+            $('#UFId').val(data.UFId);
+            $('#CidadeId').val(data.CidadeId);
+          
+          });
+        }
+
+      </pre>
+
+      <hr>
+      <button type="button" class="btn bnt-default pull-right" onclick="history.go(-1)">Voltar</button>
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>    
+    <script src="../assets/syntaxhighlighter/shCore.js"></script>
+    <script src="../assets/syntaxhighlighter/shBrushJScript.js"></script>
+    <script>
+         SyntaxHighlighter.all()
+    </script>
+    <script src="../jquery.consultar-cep.min.js"></script>
+    <script>
+
+      $('#Cep').consultarCep({
+        focarAposPara: '#Numero',
+        btnConsultar:  '#btnBuscarCEP',
+        mensagem:      '...',
+        sucesso: function(endereco) {
+
+          $('#Endereco').val(endereco.logradouro);
+          $('#Bairro').val(endereco.bairro);
+
+          procurarCidade(endereco.uf, endereco.localidade);
+        },
+        falha: function(erro) {
+          $('#Endereco').val('CEP não encontrado.');
+          $('#Bairro').val('');
+          $('#CidadeId').val(0);
+          $('#UFId').val(0);
+          $('#Cep').focus();
+        }
+      });
+
+      function procurarCidade(uf, cidade) {
+        // para fins de exemplo, o código desta função foi simplificada
+        $('#UFId').val(1);
+        $('#CidadeId').val(1);
+      }
+
+    </script>
+  </body>
+</html>

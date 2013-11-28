@@ -2,7 +2,26 @@
  
   $.fn.consultarCep = function(options) {
 
+    var options = $.extend({
+      elCep: $(this),
+      campos: {
+        cep:        '#cep',
+        logradouro: '#endereco',
+        bairro:     '#bairro',
+        localidade: '#cidade',
+        uf:         '#uf'
+      },
+      evento: 'click',
+      focarAposPara: '#cep',
+      btnConsultar: '#consultar-cep',
+      elMensagem: this, // Elemento container da mensagem
+      mensagem: '<i class="fa fa-spin fa-spinner"></i>',
+      url: 'http://cep.correiocontrol.com.br/$CEP.js'
+    }, options);
+
   	var consultar = function(cep) {
+
+      if(cep == undefined || cep.length < 8) return;
 
   		var cep = cep.replace('-', ''),
   				url = options.url.replace('$CEP', cep);
@@ -16,56 +35,43 @@
   			jasonpCallback: 'correiocontrolcep',
   			dataType: 'jsonp',
   			crossDomain: true  			
-  		}).success(function(data) {
-				correiocontrolcep(data);
-			}).always(function(data) {
-				if(options.evento == 'click')
-					options.btnConsultar.button('reset');
-			});
-  	};
-
-  	window.correiocontrolcep = function(valor) {
-      if (valor == null || valor == undefined || valor.hasOwnProperty('erro')) {
-      	options.elMensagem.html('CEP não encontrado').show();
-	      for(var campo in options.campos)
-	      	$(options.campos[campo]).val(valor[campo]);
-	    	return;
-      }      
-      else
-      {
-	      for(var campo in options.campos)
-	      	$(options.campos[campo]).val(valor[campo]);
-
-	      if(options.evento == 'click')
-	      {
-	      	options.btnConsultar.button('reset');
-	      }
-
-	      options.elMensagem.html('').hide();
-
-	      if(options.focarAposPara)
-	      	$(options.focarAposPara).focus();
-      }
+  		});
     };
 
-  	var options = $.extend({
-  		elCep: $(this),
-  		campos: {
-  			cep: 				'#cep',
-        logradouro: '#endereco',
-        bairro:     '#bairro',
-        localidade: '#cidade',
-        uf:         '#uf'
-      },
-  		evento: 'click',
-      focarAposPara: '#cep',
-      btnConsultar: '#consultar-cep',
-  		elMensagem: this, // Elemento container da mensagem
-  		mensagem: '<i class="fa fa-spin fa-spinner"></i>',
-  		url: 'http://cep.correiocontrol.com.br/$CEP.js'
-  	}, options);
-  	options.btnConsultar = $(options.btnConsultar);
+    window.correiocontrolcep = function(valor) {
+      if (valor == null || valor == undefined || valor.hasOwnProperty('erro')) {
+        options.btnConsultar.button('reset');
+        if(options.falha)
+        {
+          options.falha(valor);
+        }
+        else
+        {
+          options.elMensagem.html('CEP não encontrado').show();
+          for(var campo in options.campos)
+            $(options.campos[campo]).val(valor[campo]);
+          elCep.focus();
+        }        
+        return;
+      } else {
+        if(options.sucesso) {
+          options.sucesso(valor);
+        } else {
+          for(var campo in options.campos)
+            $(options.campos[campo]).val(valor[campo]);
 
+          options.elMensagem.html('').hide();          
+        }        
+      }
+
+			if(options.evento == 'click')
+				options.btnConsultar.button('reset');
+
+      if(options.focarAposPara)
+      	$(options.focarAposPara).focus();
+    };
+  	
+  	options.btnConsultar = $(options.btnConsultar);
 		options.elMensagem = $('<span/>', {
 			class: options.classMensagem,
 			html: options.mensagem

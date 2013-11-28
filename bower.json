@@ -1,0 +1,21 @@
+{
+  "name": "jquery-consultar-cep",
+  "version": "1.0.0",
+  "homepage": "http://hewerthomn.github.io/jquery-consultar-cep",
+  "dependencies": {
+    "jquery": "master"
+  },
+  "authors": [
+    "Randson Jarthis <randson@randsonjs.com>",
+    "Hewerthomn <hewerthomn@gmail.com>"
+  ],
+  "description": "Plugin jQuery para preencher campos de formulários a apartir de CEP digitado por usuário.",
+  "main": "jquery.consulta-cep.js",
+  "keywords": [
+    "cep",
+    "consulta",
+    "formulario",
+    "jquery"
+  ],
+  "license": "MIT"
+}

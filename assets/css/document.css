@@ -1,0 +1,91 @@
+@-webkit-keyframes linearVertical {
+	from {
+		top: 32px;
+	}
+	to {
+		top: 0px;
+	}
+}
+
+@-ms-keyframes linearVertical {
+	from {
+		top: 32px;
+	}
+	to {
+		top: 0px;
+	}
+}
+
+@-o-keyframes linearVertical {
+	from {
+		top: 32px;
+	}
+	to {
+		top: 0px;
+	}
+}
+
+@-moz-keyframes linearVertical {
+	from {
+		top: 32px;
+	}
+	to {
+		top: 0px;
+	}
+}
+
+@keyframes linearVertical {
+	from {
+		top: 32px;
+	}
+	to {
+		top: 0px;
+	}
+}
+
+.link-download {
+	display: inline-block;
+}
+
+.container-seta {
+	width: 100px;
+	height: 60px;
+	position: relative;
+
+	-webkit-animation: linearVertical infinite alternate 2s;
+	-o-animation: linearVertical infinite alternate 2s;
+	animation: linearVertical infinite alternate 2s;
+}
+
+.download-plugin {
+	width: 100px;
+	height: 20px;
+	background-color: #000;
+	margin: 20px 0px 0px 0px;
+}
+
+.download-plugin .overlay {
+	width: 80px;
+	height: 10px;
+	background-color: #fff;
+	margin: 0 auto;
+}
+
+.seta {
+	width: 20px;
+	height: 30px;
+	background-color: #000;
+	margin: 0px 0px 0px 2.7em;
+}
+
+.seta .triangulo {
+	width: 0px;
+	height: 0px;
+	border: 25px solid #000;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	margin: 0em 0px 0px -15px;
+	position: relative;
+	top: 30px;
+}

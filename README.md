@@ -73,3 +73,6 @@ $('#cep').consultarCep({
 3. Faça um commit de suas modificações: `git commit -am 'Adiciona mais recursos'`
 4. Realize um push na sua branch: `git push origin meu-novo-recurso`
 5. Realize um pull request :D
+
+## Licença
+[Licença MIT](https://github.com/hewerthomn/jquery-consultar-cep/blob/master/LICENSE.txt) © Éverton de Souza Mendes Inocencio

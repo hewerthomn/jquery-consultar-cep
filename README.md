@@ -34,7 +34,7 @@ bower install jquery-consultar-cep
 
 ### Javascript
 
-```
+```js
 $('#cep').consultarCep({
     focarAposPara: '#numero',
     mensagem: '<i class="fa fa-spin fa-spinner"></i>',
@@ -49,7 +49,8 @@ $('#cep').consultarCep({
 ```
 
 Com função callback personalizada
-```
+
+```js
 $('#cep').consultarCep({
     focarAposPara: '#numero',
     mensagem: '<i class="fa fa-spin fa-spinner"></i>',

@@ -1,7 +1,5 @@
 # jQuery Consultar CEP
 
-***
-
 _Plugin jQuery para preencher campos de formulários a apartir de CEP._
 
 ## Exemplos
@@ -10,16 +8,12 @@ _Plugin jQuery para preencher campos de formulários a apartir de CEP._
 *  [Exemplo com blur](http://hewerthomn.github.io/jquery-consultar-cep/examples/on-blur.html)
 *  [Função callback personalizada](http://hewerthomn.github.io/jquery-consultar-cep/examples/custom-callback.html)
 
-***
-
 ## Instalação
 
 Um arquivo de origem embalado inclui tudo que você precisa para usar o plugin.
 
 *  [jquery.consultar-cep.js](http://hewerthomn.github.io/jquery-consultar-cep/jquery.consultar-cep.js) <br>
 *  [jquery.consultar-cep.min.js](http://hewerthomn.github.io/jquery-consultar-cep/jquery.consultar-cep.min.js)
-
-***
 
 ## Bower
 
@@ -28,7 +22,6 @@ _Se você é bom em linha de comando, pode usar o [Bower](http://bower.io) para 
 ```
 bower install jquery-consultar-cep
 ```
-***
 
 ## Inicializando
 

@@ -19,8 +19,8 @@ Um arquivo de origem embalado inclui tudo que você precisa para usar o plugin.
 
 _Se você é bom em linha de comando, pode usar o [Bower](http://bower.io) para instalar esse plugin._
 
-```
-bower install jquery-consultar-cep
+```sh
+$ bower install jquery-consultar-cep
 ```
 
 ## Inicializando
@@ -69,4 +69,4 @@ $('#cep').consultarCep({
 5. Realize um pull request :D
 
 ## Licença
-[Licença MIT](https://github.com/hewerthomn/jquery-consultar-cep/blob/master/LICENSE.txt) © Éverton de Souza Mendes Inocencio
+[Licença MIT](https://github.com/hewerthomn/jquery-consultar-cep/blob/master/LICENSE.txt) © Éverton de Souza Mendes Inocêncio

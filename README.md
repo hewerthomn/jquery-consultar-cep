@@ -1,4 +1,4 @@
-# jQuery Consultar CEP
+# [jquery-consultar-cep](http://hewerthomn.github.io/jquery-consultar-cep/)
 
 _Plugin jQuery para preencher campos de formulários a apartir de CEP._
 

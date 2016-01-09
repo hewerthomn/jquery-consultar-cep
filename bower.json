@@ -6,7 +6,7 @@
     "jquery": "master"
   },
   "authors": [
-    "Randson Jarthis <randson@randsonjs.com>",
+    "Randson Oliveira <orandson@gmail.com>",
     "Hewerthomn <hewerthomn@gmail.com>"
   ],
   "description": "Plugin jQuery para preencher campos de formulários a apartir de CEP digitado por usuário.",

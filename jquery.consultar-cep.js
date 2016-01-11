@@ -22,7 +22,7 @@
                     btnConsultar: '#consultar-cep',
                     elMensagem: this, // Elemento container da mensagem
                     mensagem: '<i class="fa fa-spin fa-spinner"></i>',
-                    url: 'http://api.postmon.com.br/v1/cep/$CEP'
+                    url: '//api.postmon.com.br/v1/cep/$CEP'
                 }, settings);
 
                 if (!data) {

@@ -22,7 +22,7 @@
                     btnConsultar: '#consultar-cep',
                     elMensagem: this, // Elemento container da mensagem
                     mensagem: '<i class="fa fa-spin fa-spinner"></i>',
-                    url: 'http://cep.correiocontrol.com.br/$CEP.js?jsoncallback=?'
+                    url: '//api.postmon.com.br/v1/cep/$CEP'
                 }, settings);
 
                 if (!data) {
@@ -67,8 +67,16 @@
 
             options = settings;
 
-            $.getJSON( url,  {
-                format: "json"
+            $.getJSON(url).success(function (data) {
+                data.localidade = data.cidade;
+                delete data.cidade;
+                data.uf = data.estado;
+                delete data.estado;
+                correiocontrolcep(data);
+            })
+            .error(function(data) {
+                data.erro = true;
+                correiocontrolcep(data);
             });
         },
         correiocontrolcep: function(valor) {
@@ -171,5 +179,5 @@
         }
 
     }
- 
+
 }( jQuery ));
